@@ -1,0 +1,65 @@
+---
+title: 'stop bleeding money: why your llm system needs better input guardrails'
+publishedAt: '2024-11-17'
+summary: 'learn how to develop effective input guardrails for llms through an iterative process, saving costs and improving safety in production systems.'
+---
+
+<div className="border-2 border-gray-200 dark:border-gray-800 rounded-lg p-6 my-4">
+  <ul className="space-y-2">
+    <li>need help implementing guardrails? <a href="https://www.hiteshbandhu.xyz/" className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300">contact me</a></li>
+    <li>want to roadmap for learning llms? <a href="https://blog.hiteshbandhu.xyz/blog/genai-hustle-announcement" className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300">read this</a></li>
+  </ul>
+</div>
+
+## Introduction
+
+this post discusses the iterative development of input guardrails for large language models (llms). llms have two types of guardrails: input and output. while both are crucial for ensuring safe and appropriate content generation, this post focuses on input guardrails.
+
+## The Problem
+
+many companies lose valuable time, money, and api tokens processing requests not intended for their systems. this highlights the need for effective input guardrails to prevent:
+- prompt injections
+- harmful or inappropriate prompts
+- requests for illegal content
+- generation of sexually explicit material
+- racist or discriminatory content
+
+## The Solution: A Three-Stage Iterative Process
+
+we'll use a smaller, cheaper llm (like a cloud 3 haiku version or gemini 1.5 flash version) for prompt development.
+
+### Stage 1: Initial Implementation (v0)
+- create an initial prompt focusing on filtering out undesirable content
+- test this prompt against an evaluation dataset labeled for safety (true/false)
+
+### Stage 2: Feedback Analysis (v1)
+- collect and manually label user input data
+- feed this data to the llm alongside the v0 prompt
+- analyze system performance:
+  - identify missing aspects of the prompt
+  - detect inappropriate queries slipping through
+  - evaluate false positives and negatives
+
+### Stage 3: Refinement (v2)
+- refine the prompt based on feedback
+- analyze new user input data
+- identify misclassifications
+- create a dataset from these edge cases
+- use this dataset with refined prompt for further llm feedback
+
+### Stage 4: Final Optimization (v3/v4)
+through this iterative process, the prompt becomes highly refined and effective at preventing inappropriate content, resulting in:
+- significant cost savings
+- reduced processing time
+- improved system safety
+- better user experience
+
+## Conclusion
+
+effective input guardrails are crucial for llm safety and efficiency. iterative development through feedback analysis is key to creating robust and accurate prompts, leading to a considerable improvement in the system. remember: each product will need its own unique guardrails tailored to its specific use case and requirements.
+
+## Resources
+
+for practical implementation examples and detailed guidance on implementing guardrails, check out these resources:
+
+- [OpenAI Cookbook: How to Use Guardrails](https://cookbook.openai.com/examples/how_to_use_guardrails) - comprehensive guide with code examples for implementing input validation and safety checks
