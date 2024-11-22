@@ -1,0 +1,69 @@
+---
+title: 'understanding langchain agents: flexibility vs reliability'  
+publishedAt: '2024-11-22'  
+summary: 'exploring the balance between flexibility and reliability in langchain agents, and how corrective RAG can enhance performance.'  
+---
+
+<div className="border-2 border-gray-200 dark:border-gray-800 rounded-lg p-6 my-4">
+  <ul className="space-y-2">
+    <li>need help with langchain agents? <a href="https://www.hiteshbandhu.xyz/" className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300">contact me</a></li>
+    <li>want to learn more about llms? <a href="https://blog.hiteshbandhu.xyz/blog/one-to-100-genai-roadmap" className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300">read this</a></li>
+  </ul>
+</div>
+
+today, we dive into the fascinating world of langchain agents, where flexibility meets reliability.  
+
+why is this important? while agents can think independently, they often lack reliability. on the other hand, chains provide reliability but at the cost of flexibility. understanding this balance is crucial for building effective systems.  
+
+here's what to expect:  
+- an introduction to agents and their characteristics.  
+- a look at corrective RAG as a solution to enhance agent performance.  
+- insights on testing agents for reliability.  
+- a discussion on the importance of the system surrounding the model.  
+
+### agents introduction
+
+- agents think on their own, but they are not reliable; however, they are flexible.
+- chains are reliable, but not flexible.
+
+#### corrective RAG as a solution
+
+- an agent checks the retrieved documents; if they are relevant, it sends them to the LLM.
+- if not, it searches the web for relevant documents before sending them to the LLM.
+- the agent then checks the answer for hallucinations and repeats this process as needed.
+
+### addressing import hallucinations
+
+langchain has also faced import hallucinations. they tackled this issue through a systematic approach involving code correction.
+
+**this process consists of two main steps:**
+
+1. experiment and gather the types of errors encountered.
+2. implement unit tests for each type of error.
+3. if an error occurs, send it back through the code generation or fixing pipeline.
+4. repeat the testing until the output meets the required standards.
+
+> ***this feature should be prioritized for the next production version.***
+
+---
+
+### testing agents for reliability
+
+to ensure agents are reliable, consider the following methods:
+
+- in-app testing.
+- pre-production testing.
+- production monitoring.
+
+#### pre-production testing
+
+- utilize LLM as a judge.
+- develop custom evaluators.
+
+---
+
+### the model is not the moat; the system around it is
+
+the effectiveness of a model is significantly influenced by the surrounding system. focusing on this aspect is essential for achieving optimal performance.
+
+---
